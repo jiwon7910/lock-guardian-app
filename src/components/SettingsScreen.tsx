@@ -74,16 +74,16 @@ const SettingsScreen = ({ settings, onNavigate, onUpdateSettings }: SettingsScre
         {/* 알람 설정 */}
         <div className="card">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-1">
               {settings.alarmEnabled ? (
                 <Bell size={24} className="text-purple-600" />
               ) : (
-                <BellOff size={24} className="text-gray-400" />
+                <BellOff size={24} className="text-gray-500" />
               )}
-              <div>
+              <div className="flex-1">
                 <h2 className="text-xl font-bold text-gray-800">알람 울리기</h2>
-                <p className="text-gray-600 text-sm mt-1">
-                  PIN 미입력 시 시끄러운 알람 발동
+                <p className="text-gray-700 text-sm mt-1 font-medium">
+                  PIN 미입력 시 알람 발동
                 </p>
               </div>
             </div>

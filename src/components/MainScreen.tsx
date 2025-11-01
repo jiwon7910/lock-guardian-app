@@ -36,6 +36,10 @@ const MainScreen = ({ settings, onNavigate, onUpdateSettings }: MainScreenProps)
           )}
         </div>
         <h1 className="text-4xl font-bold text-white mb-3 tracking-tight">Lock Guardian</h1>
+        <p className="text-white text-lg opacity-90 px-4">
+          화장실 다녀올 때, 잠시 자리 비울 때<br/>
+          누가 내 폰을 봤는지 확인하세요
+        </p>
       </div>
 
       {/* 메인 카드 */}
