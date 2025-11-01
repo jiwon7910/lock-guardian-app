@@ -35,15 +35,24 @@ const MainScreen = ({ settings, onNavigate, onUpdateSettings }: MainScreenProps)
             <ShieldAlert size={56} color="white" strokeWidth={2.5} />
           )}
         </div>
-        <h1 className="text-4xl font-bold text-white mb-3 tracking-tight">Lock Guardian</h1>
-        <p className="text-white text-lg opacity-90 px-4">
-          화장실 다녀올 때, 잠시 자리 비울 때<br/>
-          누가 내 폰을 봤는지 확인하세요
+        <h1 className="text-4xl font-bold text-white mb-3 tracking-tight">화면 지킴이</h1>
+        <p className="text-white text-lg opacity-90 px-4 mb-8">
+          잠시 자리를 비울 때<br/>
+          누군가 내 폰을 봤는지 확인하세요
         </p>
       </div>
 
       {/* 메인 카드 */}
       <div className="card">
+        {/* 하트 박동 */}
+        {settings.isMonitoring && (
+          <div className="flex justify-center mb-6">
+            <div className="heart-indicator">
+              <Heart size={28} fill="currentColor" />
+            </div>
+          </div>
+        )}
+        
         {/* ON/OFF 토글 */}
         <div className="toggle-container" style={{ margin: '20px 0' }}>
           <span className="toggle-label" style={{ color: '#999', fontSize: '28px' }}>
