@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AlertTriangle, Check } from 'lucide-react';
 import { AppSettings } from '../types';
+import { lockDetectionService } from '../services/LockDetectionService';
 
 interface PinScreenProps {
   settings: AppSettings;
@@ -32,9 +33,9 @@ const PinScreen = ({ settings, onNavigate }: PinScreenProps) => {
     setIsCorrect(false);
   };
 
-  const playAlarm = () => {
-    // 실제 앱에서는 소리 파일 재생
-    alert('🚨 알람! 누군가 당신의 폰을 보고 있습니다!');
+  const playAlarm = async () => {
+    // 실제 안드로이드 알람 재생
+    await lockDetectionService.playAlarm();
   };
 
   const handleNumberClick = (num: number) => {
@@ -76,9 +77,9 @@ const PinScreen = ({ settings, onNavigate }: PinScreenProps) => {
     <div className="w-full max-w-md fade-in">
       {/* 타이머 */}
       <div className="text-center mb-8">
-        <div className="timer">{timeLeft}</div>
-        <p className="text-lg opacity-90">
-          {timeLeft > 0 ? 'PIN을 입력하세요' : '시간 초과!'}
+        <div className="timer" style={{ color: timeLeft <= 2 ? '#f5576c' : 'white' }}>{timeLeft}</div>
+        <p className="text-2xl font-bold text-white">
+          {timeLeft > 0 ? 'PIN 입력' : '시간 초과!'}
         </p>
       </div>
 
@@ -140,14 +141,6 @@ const PinScreen = ({ settings, onNavigate }: PinScreenProps) => {
         <div /> {/* 빈 칸 */}
       </div>
 
-      {/* 경고 메시지 */}
-      {settings.alarmEnabled && (
-        <div className="card bg-red-50 border-2 border-red-200">
-          <p className="text-red-800 text-sm font-medium text-center">
-            🚨 알람 모드 활성화됨
-          </p>
-        </div>
-      )}
     </div>
   );
 };

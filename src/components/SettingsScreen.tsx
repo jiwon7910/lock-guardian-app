@@ -30,9 +30,9 @@ const SettingsScreen = ({ settings, onNavigate, onUpdateSettings }: SettingsScre
           className="btn-icon"
           onClick={() => onNavigate('main')}
         >
-          <ArrowLeft size={24} />
+          <ArrowLeft size={24} color="white" />
         </button>
-        <h1 className="text-2xl font-bold ml-4">설정</h1>
+        <h1 className="text-3xl font-bold ml-4 text-white">설정</h1>
       </div>
 
       <div className="space-y-4">
@@ -40,11 +40,8 @@ const SettingsScreen = ({ settings, onNavigate, onUpdateSettings }: SettingsScre
         <div className="card">
           <div className="flex items-center gap-3 mb-4">
             <Lock size={24} className="text-purple-600" />
-            <h2 className="text-xl font-bold text-gray-800">PIN 번호 설정</h2>
+            <h2 className="text-xl font-bold text-gray-800">PIN 설정</h2>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
-            잠금 해제 후 5초 안에 입력해야 하는 PIN 번호
-          </p>
           <div className="flex gap-3">
             <input
               type="tel"
@@ -97,32 +94,6 @@ const SettingsScreen = ({ settings, onNavigate, onUpdateSettings }: SettingsScre
               <div className="toggle-knob" />
             </div>
           </div>
-          {settings.alarmEnabled && !settings.pinCode && (
-            <div className="mt-4 p-3 bg-yellow-50 border-2 border-yellow-200 rounded-xl">
-              <p className="text-yellow-800 text-sm font-medium">
-                ⚠️ PIN 번호를 먼저 설정해주세요
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* 설명 카드 */}
-        <div className="card bg-gradient-to-br from-purple-50 to-blue-50">
-          <h3 className="font-bold text-gray-800 mb-3">💡 사용 방법</h3>
-          <ul className="space-y-2 text-sm text-gray-700">
-            <li className="flex items-start gap-2">
-              <span className="text-purple-600 font-bold">1.</span>
-              <span>메인 화면에서 ON을 켜고 자리를 비웁니다</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-purple-600 font-bold">2.</span>
-              <span>누군가 폰을 켜면 하트 개수가 늘어납니다</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-purple-600 font-bold">3.</span>
-              <span>알람 ON 시: 5초 안에 PIN 입력 필요</span>
-            </li>
-          </ul>
         </div>
       </div>
     </div>

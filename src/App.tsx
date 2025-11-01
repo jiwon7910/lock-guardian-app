@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AppSettings } from './types';
 import { loadSettings, saveSettings } from './utils/storage';
+import { lockDetectionService } from './services/LockDetectionService';
 import MainScreen from './components/MainScreen';
 import SettingsScreen from './components/SettingsScreen';
 import PinScreen from './components/PinScreen';
@@ -13,7 +14,24 @@ function App() {
 
   useEffect(() => {
     saveSettings(settings);
+    
+    // 모니터링 상태에 따라 서비스 시작/중지
+    if (settings.isMonitoring) {
+      lockDetectionService.startMonitoring();
+    } else {
+      lockDetectionService.stopMonitoring();
+    }
   }, [settings]);
+
+  useEffect(() => {
+    // PIN 입력 화면 표시 이벤트 리스너
+    const handleShowPin = () => {
+      setCurrentScreen('pin');
+    };
+    
+    window.addEventListener('showPinScreen', handleShowPin);
+    return () => window.removeEventListener('showPinScreen', handleShowPin);
+  }, []);
 
   const updateSettings = (updates: Partial<AppSettings>) => {
     setSettings(prev => ({ ...prev, ...updates }));
