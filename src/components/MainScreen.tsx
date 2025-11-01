@@ -35,8 +35,8 @@ const MainScreen = ({ settings, onNavigate, onUpdateSettings }: MainScreenProps)
             <ShieldAlert size={56} color="white" strokeWidth={2.5} />
           )}
         </div>
-        <h1 className="text-4xl font-bold text-white mb-6 tracking-tight">화면 지킴이</h1>
-        <p className="text-white text-lg opacity-90 px-4 leading-relaxed">
+        <h1 className="text-4xl font-bold text-white mb-8 tracking-tight">Lock Guardian</h1>
+        <p className="text-white text-lg opacity-90 px-4 leading-relaxed mb-16">
           잠시 자리를 비울 때<br/>
           누군가 내 폰을 봤는지 확인하세요
         </p>
