@@ -24,7 +24,7 @@ const MainScreen = ({ settings, onNavigate, onUpdateSettings }: MainScreenProps)
   return (
     <div className="w-full max-w-md fade-in">
       {/* 로고 */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-16">
         <div className="inline-flex items-center justify-center w-28 h-28 rounded-full mb-6"
              style={{ background: settings.isMonitoring 
                ? 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' 
@@ -35,8 +35,8 @@ const MainScreen = ({ settings, onNavigate, onUpdateSettings }: MainScreenProps)
             <ShieldAlert size={56} color="white" strokeWidth={2.5} />
           )}
         </div>
-        <h1 className="text-4xl font-bold text-white mb-3 tracking-tight">화면 지킴이</h1>
-        <p className="text-white text-lg opacity-90 px-4 mb-8">
+        <h1 className="text-4xl font-bold text-white mb-6 tracking-tight">화면 지킴이</h1>
+        <p className="text-white text-lg opacity-90 px-4 leading-relaxed">
           잠시 자리를 비울 때<br/>
           누군가 내 폰을 봤는지 확인하세요
         </p>

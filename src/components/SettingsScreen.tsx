@@ -25,7 +25,7 @@ const SettingsScreen = ({ settings, onNavigate, onUpdateSettings }: SettingsScre
   return (
     <div className="w-full max-w-md fade-in">
       {/* 헤더 */}
-      <div className="flex items-center mb-8">
+      <div className="flex items-center mb-10">
         <button
           className="btn-icon"
           onClick={() => onNavigate('main')}
@@ -35,12 +35,12 @@ const SettingsScreen = ({ settings, onNavigate, onUpdateSettings }: SettingsScre
         <h1 className="text-3xl font-bold ml-4 text-white">설정</h1>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-6">
         {/* PIN 설정 */}
         <div className="card">
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-6">
             <Lock size={24} className="text-purple-600" />
-            <h2 className="text-xl font-bold text-gray-800">PIN 설정</h2>
+            <h2 className="text-xl font-bold" style={{ color: '#1a1a1a' }}>PIN 설정</h2>
           </div>
           <div className="flex gap-3">
             <input
@@ -81,8 +81,8 @@ const SettingsScreen = ({ settings, onNavigate, onUpdateSettings }: SettingsScre
                 <BellOff size={24} className="text-gray-500" />
               )}
               <div className="flex-1">
-                <h2 className="text-xl font-bold text-gray-800">알람 울리기</h2>
-                <p className="text-gray-700 text-sm mt-1 font-medium">
+                <h2 className="text-xl font-bold" style={{ color: '#1a1a1a' }}>알람 울리기</h2>
+                <p className="text-sm mt-2" style={{ color: '#4a4a4a' }}>
                   PIN 미입력 시 알람 발동
                 </p>
               </div>
